@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Hex Map Editor – STEP 4 Horde List</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="topbar">
+  <button id="loginBtn">Zaloguj jako administrator</button>
+  <button id="logoutBtn" style="display:none">Wyloguj</button>
+</div>
+
+<div id="main">
+  <div id="map-container">
+    <div id="toolbar"></div>
+    <div id="map-viewport">
+      <svg id="mapSvg">
+        <g id="hexLayer"></g>
+        <g id="grid"></g>
+        <g id="flags"></g>
+      </svg>
+    </div>
+  </div>
+
+  <div id="hordeList">
+    <h3>Lista Hord</h3>
+    <div id="hordeItems"></div>
+  </div>
+</div>
+
+<div id="hordePopup" class="hidden"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
