@@ -554,15 +554,18 @@ renderHordeList = function(){
 /* ================================ */
 
 
-// === AUTO LOAD DEFAULT MAP (GitHub Pages safe) ===
-document.addEventListener("DOMContentLoaded", () => {
+
+
+/* === AUTOLOAD map.json (FINAL FIX) === */
+window.addEventListener("load", () => {
   fetch("map.json")
     .then(r => r.json())
     .then(data => {
-      if (typeof renderMapFromJson === "function") {
-        renderMapFromJson(data);
+      if (typeof importMap === "function") {
+        hexMap = data;
+        applyMap();
       } else {
-        console.error("renderMapFromJson() not found");
+        console.error("importMap/applyMap not found");
       }
     })
     .catch(err => console.error("Map load error:", err));
