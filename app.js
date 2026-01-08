@@ -552,3 +552,18 @@ renderHordeList = function(){
   });
 };
 /* ================================ */
+
+
+// === AUTO LOAD DEFAULT MAP (GitHub Pages safe) ===
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("map.json")
+    .then(r => r.json())
+    .then(data => {
+      if (typeof renderMapFromJson === "function") {
+        renderMapFromJson(data);
+      } else {
+        console.error("renderMapFromJson() not found");
+      }
+    })
+    .catch(err => console.error("Map load error:", err));
+});
